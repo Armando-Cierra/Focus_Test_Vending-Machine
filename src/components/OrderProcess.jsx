@@ -7,9 +7,8 @@ export default function OrderProcess(){
     const {orders, setOrders} = useContext(OrdersContext)
     const {ordersList} = orders
 
-    function deleteOrder(index){
-        let newOrdersList = orders.ordersList
-        newOrdersList.splice(index, 1)
+    function deleteOrder(name){
+        let newOrdersList = orders.ordersList.filter(order => order.name !== name)
 
         setOrders({
             ...orders,
@@ -18,7 +17,7 @@ export default function OrderProcess(){
     }
 
     return(
-        <div className="ordersProcess">
+        <div className="ordersProcess" id="ordersProcess">
             <div className="instruction">
                 <div className="circle">3</div>
                 <p>Order's Process</p>

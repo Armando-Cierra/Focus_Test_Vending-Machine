@@ -1,0 +1,180 @@
+@import 'variables';
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: $main;
+    box-sizing: border-box;
+    outline: none !important;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    button{
+        outline: none;
+    }
+    &::selection{
+        background-color: $red;
+        color: $white;
+    }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+#title{
+    display: none;
+}
+
+.btn{
+    font-size: 1rem;
+    padding: .8rem 1rem;
+    border: none;
+    background: $black;
+    color: $white;
+    transition: .15s;
+    &:hover{
+        background: $darkgrey;
+    }
+}
+.btn.disabled{
+    opacity: .1;
+    pointer-events: none;
+}
+
+.instruction{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    .circle{
+        width: 2.5rem;
+        height: 2.5rem;
+        border: 3px solid $black;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: $bold;
+        margin-right: 1rem;
+    }
+    p{
+        font-size: 1.2rem;
+        font-weight: $bold;
+    }
+}
+
+.box{
+    width: 85%;
+    max-width: 450px;
+    background: $white;
+    border-radius: 1rem;
+    padding: 1rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4rem;
+    margin: .5rem;
+    margin-top: 4.5rem;
+    .foodImage{
+        position: absolute;
+        top: -3.5rem;
+        width: 7rem;
+        height: 7rem;
+        border-radius: 50%;
+        background: $grey;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: easy-in-out .25s;
+        img{
+            max-width: 80%;
+            max-height: 80%;
+        }
+    }
+    h3{
+        margin-bottom: .5rem;
+        transition: easy-in-out .25s;
+    }
+    .decoration{
+        height: 2px;
+        width: 85%;
+        background: $grey;
+        margin: .5rem 0;
+    }
+    p{
+        margin-bottom: 1rem;
+        color: $darkgrey;
+    }
+}
+
+.box.red{
+    .foodImage{
+        background: $red
+    }
+    h3{
+        color: $red
+    }
+}
+.box.orange{
+    .foodImage{
+        background: $orange
+    }
+    h3{
+        color: $orange
+    }
+}
+.box.blue{
+    .foodImage{
+        background: $blue
+    }
+    h3{
+        color: $blue
+    }
+}
+
+.container{
+    display: flex;
+    flex-direction: column;
+    .menu{
+        width: 100%
+    }
+    .process{
+        width: 100%
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .container{
+        flex-direction: row;
+        .menu{
+            width: 75%;
+            height: 100vh;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+        .process{
+            width: 25%;
+            height: 100vh;
+            overflow-y: scroll;
+        }
+    }
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: $grey
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: $darkgrey;
+    &:hover{
+        background: $blue
+    }
+}

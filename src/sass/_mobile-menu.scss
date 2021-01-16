@@ -1,0 +1,116 @@
+@import 'variables';
+
+a{
+    text-decoration: none;
+    color: $black;
+    .instruction{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 2rem;
+        .circle{
+            width: 2.5rem;
+            height: 2.5rem;
+            border: 3px solid $black;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: $bold;
+            margin-right: 1rem;
+        }
+        p{
+            font-size: 1.2rem;
+            font-weight: $bold;
+        }
+    }
+}
+nav{
+    width: 100%;
+    background: $white;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    height: 350px;
+    bottom: -350px;
+    transition: .25s;
+    .btnMenu{
+        background: $black;
+        width: 6rem;
+        height: 6rem;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: -3.5rem;
+        z-index: 50;
+        .toggleBtn{
+            position: absolute;
+            top: -1rem;
+            width: 40px;
+            height: 6px;
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: ease-in-out .15s;
+            transition-delay: .1s;
+            div{
+                position: relative;
+                height: 4px;
+                border-radius: 3px;
+                width: 60%;
+                background-color: $white;
+                transition: ease-in-out .25s;
+                &::after, &::before{
+                    position: absolute;
+                    content: "";
+                    width: 100%;
+                    height: 4px;
+                    border-radius: 3px;
+                    background-color: $white;
+                    transition: ease-in-out .25s;
+                }
+                &::before{
+                    transform: translateY(-.5rem);
+                }
+                &::after{
+                    transform: translateY(.5rem);
+                }
+            }
+        }
+        .toggleBtn.active{
+            box-shadow: none;
+            div{
+                background: transparent;
+                &::before{
+                    transform: rotate(135deg);
+                }
+                &::after{
+                    transform: rotate(-135deg);
+                }
+            }
+        }
+    }
+    .links{
+        padding: 2rem;
+        background: $white;
+        z-index: 100;
+        border-top: 8px solid $black;
+        .instruction{
+            justify-content: flex-start;
+        }
+    }
+}
+nav.active{
+    bottom: 0;
+}
+
+@media screen and(min-width: 1280px){
+    nav{
+        display: none;
+    }
+}

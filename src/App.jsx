@@ -1,9 +1,10 @@
 import {useState} from 'react'
 import Menu from './components/Menu'
 import Process from './components/Process'
+import MobileNav from './components/MobileNav'
 
 import OrderContext from './context/OrdersContext'
-import './sass/index.sass';
+import './sass/index.scss';
 
 export default function App() {
 
@@ -20,8 +21,11 @@ export default function App() {
 
   return (
       <OrderContext.Provider value={{orders, setOrders}}>
-        <Menu/>
-        <Process />
+        <main className="container">
+          <Menu/>
+          <Process />
+        </main>
+        <MobileNav/>
       </OrderContext.Provider>
   );
 }

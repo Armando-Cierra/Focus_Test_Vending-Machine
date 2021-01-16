@@ -1,0 +1,36 @@
+@import 'variables';
+
+.process{
+    width: 100%;
+    background: $lightgrey;
+    padding: 3rem 1rem;
+    .currentSelection{
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+    .ordersProcess{
+        .instruction{
+            margin-top: 3rem !important;
+        }
+        .content{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            img{
+                width: 80%;
+                max-width: 400px;
+            }
+            .box{
+                padding: 1rem;
+                margin-top: 1rem;
+                &:first-child{
+                    margin-top: 0;
+                }
+            }
+        }
+    }
+}

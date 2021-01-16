@@ -1,4 +1,4 @@
-import {useState, useContext} from 'react'
+import {useContext} from 'react'
 import OrdersContext from '../context/OrdersContext'
 
 export default function CurrentSelection(){
@@ -24,7 +24,7 @@ export default function CurrentSelection(){
     }
 
     return(
-        <div className="currentSelection">
+        <div className="currentSelection" id="currentSelection">
             <div className="instruction">
                 <div className="circle">2</div>
                 <p>Current Selection</p>

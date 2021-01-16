@@ -16,7 +16,7 @@ export default function Menu (){
 
     return(
         <>
-            <section className="menu">
+            <section className="menu" id="menu">
                 <header>
                     <h1 id="title">The Vending Machine</h1>
                     <img src="'../../img/logo.svg" alt=""/>

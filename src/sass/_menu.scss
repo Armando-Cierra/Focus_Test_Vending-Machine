@@ -1,0 +1,135 @@
+@import 'variables';
+
+.menu{
+    padding: 1rem;
+    header{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        padding: 2rem 0;
+        margin-bottom: 3rem;
+        img{
+            height: 125px;
+        }
+    }
+    .foodType{
+        margin-bottom: 2rem;
+        h2{
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .list{
+            width: 100%;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-gap: 1rem;
+            .food{
+                background: $lightgrey;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding: 1rem;
+                border-radius: 1rem;
+                transition: .25s;
+                img{
+                    width: 80%;
+                }
+                p{
+                    font-size: .7rem;
+                    color: $darkgrey;
+                    text-align: center;
+                }
+            }
+            .food.active{
+                transform: scale(1.06);
+            }
+        }
+    }
+    .foodType.Food{
+        h2{
+            color: $red;
+        }
+        .list{
+            .food{
+                h3{
+                    color: $red;
+                }
+            }
+            .food.active{
+                background: $red;
+                h3, p{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .foodType.Snacks{
+        h2{
+            color: $orange;
+        }
+        .list{
+            .food{
+                h3{
+                    color: $orange;
+                }
+            }
+            .food.active{
+                background: $orange;
+                h3, p{
+                    color: $white;
+                }
+            }
+        }
+    }
+    .foodType.Drinks{
+        h2{
+            color: $blue;
+        }
+        .list{
+            .food{
+                h3{
+                    color: $blue;
+                }
+            }
+            .food.active{
+                background: $blue;
+                h3, p{
+                    color: $white;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px){
+    .menu{
+        .foodType{
+            .list{
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1000px){
+    .menu{
+        .foodType{
+            .list{
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 1280px){
+    .menu{
+        padding: 1rem 7rem;
+    }
+}
+
+@media screen and (min-width: 1900px){
+    .menu{
+        padding: 1rem 15rem;
+    }
+}

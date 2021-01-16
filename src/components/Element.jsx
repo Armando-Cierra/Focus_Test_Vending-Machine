@@ -1,8 +1,8 @@
 import {useState, useEffect} from 'react'
 
-export default function Element({order, index, deleteOrder}){
+export default function Element({order, deleteOrder}){
 
-    const {img, name, time, color} = order
+    const {name, time, color} = order
     const [timer, setTimer] = useState(time)
 
     useEffect(()=>{
@@ -11,7 +11,7 @@ export default function Element({order, index, deleteOrder}){
                 setTimer(timer - 1)
             }
         }, 1000);
-    },[timer])
+    })
 
     return(
         <div className={`box ${color}`}>
@@ -21,7 +21,7 @@ export default function Element({order, index, deleteOrder}){
             {timer !== 0 ?
                 <button className="btn black disabled">Take It</button>
                 :
-                <button className="btn black" onClick={()=>{deleteOrder(index)}}>Take It</button>
+                <button className="btn black" onClick={()=>{deleteOrder(name)}}>Take It</button>
             }
         </div>
     )
