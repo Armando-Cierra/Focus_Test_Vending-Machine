@@ -23,13 +23,15 @@ export default function OrderProcess(){
                 <div className="circle">3</div>
                 <p>Order's Process</p>
             </div>
-            {ordersList.length === 0 ?
-                <img src="../img/illustration.svg" alt=""/>
-                :
-                ordersList.map((order, index)=>(
-                    <Element order={order} index={index} deleteOrder={deleteOrder} key={index} />
-                ))
-            }
+            <div className="content">
+                {ordersList.length === 0 ?
+                    <img src="../img/illustration.svg" alt=""/>
+                    :
+                    ordersList.map((order, index)=>(
+                        <Element order={order} index={index} deleteOrder={deleteOrder} key={index} />
+                    ))
+                }
+            </div>
         </div>
     )
 }

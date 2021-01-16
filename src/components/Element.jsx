@@ -14,15 +14,12 @@ export default function Element({order, index, deleteOrder}){
     },[timer])
 
     return(
-        <div className="box">
-            <div className="foodImage">
-                <img src={img} alt=""/>
-            </div>
+        <div className={`box ${color}`}>
             <h3 className={color}>{name === '' ? 'Nothing Selected' : name}</h3>
             <div className="decoration"></div>
-            <p><strong>Preparation Time: </strong>{time === '' ? 0 : timer}</p>
+            <p><strong>Time Remaining: </strong>{time === '' ? 0 : timer}</p>
             {timer !== 0 ?
-                <button className="btn black disabled" onClick={()=>{deleteOrder(index)}}>Take It</button>
+                <button className="btn black disabled">Take It</button>
                 :
                 <button className="btn black" onClick={()=>{deleteOrder(index)}}>Take It</button>
             }

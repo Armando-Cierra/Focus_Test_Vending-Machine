@@ -5,11 +5,9 @@ import OrderContext from '../context/OrdersContext'
 
 export default function Menu (){
 
-    const [selection, setSelection] = useState('')
     const {orders, setOrders} = useContext(OrderContext)
 
     function activeSelection(name, time, color, img){
-        setSelection(name)
         setOrders({
             ...orders,
             currentSelection: {name, time, color, img, ready: false}
@@ -18,12 +16,11 @@ export default function Menu (){
 
     return(
         <>
-            <header>
-                <h1 id="title">The Vending Machine</h1>
-                <img src="'../../img/logo.svg" alt=""/>
-            </header>
-
             <section className="menu">
+                <header>
+                    <h1 id="title">The Vending Machine</h1>
+                    <img src="'../../img/logo.svg" alt=""/>
+                </header>
                 <div className="instruction">
                     <div className="circle">1</div>
                     <p>Select what your appetite dictates</p>
@@ -39,7 +36,7 @@ export default function Menu (){
                             {foodType.list.map((food, index)=>(
 
                                 <div 
-                                    className={`food ${selection === food.name ? 'active' : ''}`} 
+                                    className={`food ${orders.currentSelection.name === food.name ? 'active' : ''}`} 
                                     key={`f${index}`} 
                                     onClick={()=>{activeSelection(food.name, food.time, foodType.color, food.img)}}
                                 >
