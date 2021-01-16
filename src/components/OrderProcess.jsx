@@ -27,7 +27,7 @@ export default function OrderProcess(){
                     <img src="../img/illustration.svg" alt=""/>
                     :
                     ordersList.map((order, index)=>(
-                        <Element order={order} index={index} deleteOrder={deleteOrder} key={index} />
+                        <Element order={order} deleteOrder={deleteOrder} key={index} />
                     ))
                 }
             </div>
