@@ -1,5 +1,5 @@
 import foodList from '../helper/foodList'
-import {useState, useContext} from 'react'
+import {useContext} from 'react'
 
 import OrderContext from '../context/OrdersContext'
 

@@ -7,8 +7,9 @@ export default function OrderProcess(){
     const {orders, setOrders} = useContext(OrdersContext)
     const {ordersList} = orders
 
-    function deleteOrder(name){
-        let newOrdersList = orders.ordersList.filter(order => order.name !== name)
+    function deleteOrder(index){
+        let newOrdersList = orders.ordersList
+        newOrdersList.splice(index, 1)
 
         setOrders({
             ...orders,
@@ -27,7 +28,7 @@ export default function OrderProcess(){
                     <img src="../img/illustration.svg" alt=""/>
                     :
                     ordersList.map((order, index)=>(
-                        <Element order={order} deleteOrder={deleteOrder} key={index} />
+                        <Element order={order} deleteOrder={deleteOrder} key={index} index={index} />
                     ))
                 }
             </div>

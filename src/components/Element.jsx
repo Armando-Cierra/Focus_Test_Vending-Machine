@@ -1,6 +1,9 @@
 import {useState, useEffect} from 'react'
 
-export default function Element({order, deleteOrder}){
+export default function Element({order, deleteOrder, index}){
+
+    const abortController = new AbortController()
+
 
     const {name, time, color} = order
     const [timer, setTimer] = useState(time)
@@ -11,6 +14,10 @@ export default function Element({order, deleteOrder}){
                 setTimer(timer - 1)
             }
         }, 1000);
+
+        return ()=>{
+            abortController.abort()
+        }
     })
 
     return(
@@ -21,7 +28,7 @@ export default function Element({order, deleteOrder}){
             {timer !== 0 ?
                 <button className="btn black disabled">Take It</button>
                 :
-                <button className="btn black" onClick={()=>{deleteOrder(name)}}>Take It</button>
+                <button className="btn black" onClick={()=>{deleteOrder(index)}}>Take It</button>
             }
         </div>
     )
