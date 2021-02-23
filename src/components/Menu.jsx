@@ -1,17 +1,12 @@
 import foodList from '../helper/foodList'
-import {useContext} from 'react'
-
-import OrderContext from '../context/OrdersContext'
+import {useStore} from '../store'
 
 export default function Menu (){
 
-    const {orders, setOrders} = useContext(OrderContext)
+    const {currentSelection, addCurrentSelection} = useStore()
 
     function activeSelection(name, time, color, img){
-        setOrders({
-            ...orders,
-            currentSelection: {name, time, color, img, ready: false}
-        })
+        addCurrentSelection(name, time, color, img)
     }
 
     return(
@@ -36,7 +31,7 @@ export default function Menu (){
                             {foodType.list.map((food, index)=>(
 
                                 <div 
-                                    className={`food ${orders.currentSelection.name === food.name ? 'active' : ''}`} 
+                                    className={`food ${currentSelection.name === food.name ? 'active' : ''}`} 
                                     key={`f${index}`} 
                                     onClick={()=>{activeSelection(food.name, food.time, foodType.color, food.img)}}
                                 >

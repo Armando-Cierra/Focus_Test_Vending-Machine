@@ -4,7 +4,6 @@ export default function Element({order, deleteOrder, index}){
 
     const abortController = new AbortController()
 
-
     const {name, time, color} = order
     const [timer, setTimer] = useState(time)
 

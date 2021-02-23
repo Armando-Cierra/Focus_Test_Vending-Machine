@@ -1,26 +1,16 @@
-import {useContext} from 'react'
-import OrdersContext from '../context/OrdersContext'
+import {useStore} from '../store'
 
 export default function CurrentSelection(){
 
-    const {orders, setOrders} = useContext(OrdersContext)
-    const {name, time, color, img} = orders.currentSelection
+    const {currentSelection, removeCurrentSelection, ordersList, addOrder} = useStore()
+    const {name, time, color, img} = currentSelection
 
-    function confirmOrder(){
-
-        let newOrdersList = orders.ordersList
-        newOrdersList.push(orders.currentSelection)
-
-        setOrders({
-            ...orders,
-            currentSelection: {
-                name: '',
-                time: '',
-                color: '',
-                img: ''
-            },
-            ordersList: newOrdersList
-        })
+    async function confirmOrder(){
+        let newArray = ordersList
+        newArray.push(currentSelection)
+        
+        addOrder(newArray)
+        removeCurrentSelection()
     }
 
     return(

@@ -1,21 +1,9 @@
-import {useContext} from 'react'
-import OrdersContext from '../context/OrdersContext'
 import Element from './Element'
+import {useStore} from '../store'
 
 export default function OrderProcess(){
 
-    const {orders, setOrders} = useContext(OrdersContext)
-    const {ordersList} = orders
-
-    function deleteOrder(index){
-        let newOrdersList = orders.ordersList
-        newOrdersList.splice(index, 1)
-
-        setOrders({
-            ...orders,
-            ordersList: newOrdersList
-        })
-    }
+    const {ordersList} = useStore()
 
     return(
         <div className="ordersProcess" id="ordersProcess">
@@ -28,7 +16,7 @@ export default function OrderProcess(){
                     <img src="../img/illustration.svg" alt=""/>
                     :
                     ordersList.map((order, index)=>(
-                        <Element order={order} deleteOrder={deleteOrder} key={index} index={index} />
+                        <Element order={order} key={index} index={index} />
                     ))
                 }
             </div>
